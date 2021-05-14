@@ -1,9 +1,7 @@
 package Algos;
 
-
 import models.Algorithm;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class MedianInStream extends Algorithm {
@@ -19,12 +17,7 @@ public class MedianInStream extends Algorithm {
     // Print median
     @Override
     protected void run() {
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return - Integer.compare(o1, o2);
-            }
-        });
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> -Integer.compare(o1, o2));
 
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 

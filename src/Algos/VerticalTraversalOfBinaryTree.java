@@ -3,7 +3,10 @@ package Algos;
 import models.Algorithm;
 import models.BinaryTreeNode;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.TreeMap;
 
 /*
 https://practice.geeksforgeeks.org/problems/print-a-binary-tree-in-vertical-order/1
@@ -44,12 +47,12 @@ The output of print this tree vertically will be:
  */
 public class VerticalTraversalOfBinaryTree extends Algorithm {
     // properties
-    private BinaryTreeNode tree;
+    private BinaryTreeNode<Integer> tree;
 
     // methods:
     @Override
     protected void init() {
-        BinaryTreeNode root = new BinaryTreeNode(1);
+        BinaryTreeNode<Integer> root = new BinaryTreeNode(1);
         root.left = new BinaryTreeNode(2);
         root.right = new BinaryTreeNode(3);
         root.left.left = new BinaryTreeNode(4);
@@ -68,11 +71,11 @@ public class VerticalTraversalOfBinaryTree extends Algorithm {
     @Override
     protected void run() {
         // Initialize Queue for BFS
-        Queue <RankedNode> queue = new LinkedList<>();
+        Queue<RankedNode> queue = new LinkedList<>();
         queue.add(new RankedNode(this.tree, 0));
 
         // Initialize Hashmap for Ranked List
-        TreeMap<Integer, LinkedList<BinaryTreeNode>> treeMap = new TreeMap<>();
+        TreeMap<Integer, LinkedList<BinaryTreeNode<Integer>>> treeMap = new TreeMap<>();
 
         while(!queue.isEmpty()){
             // Remove latest
@@ -80,10 +83,10 @@ public class VerticalTraversalOfBinaryTree extends Algorithm {
 
             // Do Stuff
             if (treeMap.containsKey(rankedNode.rank)) {
-                LinkedList<BinaryTreeNode> ll = treeMap.get(rankedNode.rank);
+                LinkedList<BinaryTreeNode<Integer>> ll = treeMap.get(rankedNode.rank);
                 ll.addLast(rankedNode.node);
             } else {
-                LinkedList<BinaryTreeNode> ll = new LinkedList<>();
+                LinkedList<BinaryTreeNode<Integer>> ll = new LinkedList<>();
                 ll.add(rankedNode.node);
                 treeMap.put(rankedNode.rank, ll);
             }
@@ -99,8 +102,8 @@ public class VerticalTraversalOfBinaryTree extends Algorithm {
         }
 
         // Traversing a map
-        for(Map.Entry<Integer, LinkedList<BinaryTreeNode>> e: treeMap.entrySet()){
-            LinkedList<BinaryTreeNode> ll = e.getValue();
+        for(Map.Entry<Integer, LinkedList<BinaryTreeNode<Integer>>> e: treeMap.entrySet()){
+            LinkedList<BinaryTreeNode<Integer>> ll = e.getValue();
 
             // Traversing a linked list
             for (BinaryTreeNode node: ll) {
@@ -114,9 +117,9 @@ public class VerticalTraversalOfBinaryTree extends Algorithm {
 
     private class RankedNode{
         public int rank;
-        public BinaryTreeNode node;
+        public BinaryTreeNode<Integer> node;
 
-        public RankedNode(BinaryTreeNode n, int r){
+        public RankedNode(BinaryTreeNode<Integer> n, int r){
             this.rank = r;
             this.node = n;
         }

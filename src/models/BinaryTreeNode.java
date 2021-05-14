@@ -1,11 +1,11 @@
 package models;
 
-public class BinaryTreeNode {
-    public int value;
+public class BinaryTreeNode<T extends Comparable<T>> {
+    public T value;
     public BinaryTreeNode left;
     public BinaryTreeNode right;
 
-    public BinaryTreeNode(int val){
+    public BinaryTreeNode(T val){
         this.value = val;
     }
 }

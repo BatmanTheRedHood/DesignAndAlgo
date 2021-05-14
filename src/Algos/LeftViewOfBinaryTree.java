@@ -26,11 +26,11 @@ Input:
 Output: 1 3
  */
 public class LeftViewOfBinaryTree extends Algorithm {
-    private BinaryTreeNode tree;
+    private BinaryTreeNode<Integer> tree;
 
     @Override
     protected  void init() {
-        BinaryTreeNode root = new BinaryTreeNode(1);
+        BinaryTreeNode<Integer> root = new BinaryTreeNode(1);
         root.left = new BinaryTreeNode(2);
         root.right = new BinaryTreeNode(3);
 
