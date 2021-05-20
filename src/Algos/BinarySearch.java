@@ -22,4 +22,45 @@ public class BinarySearch {
 
         return -1;
     }
+
+    public static <T> int searchGreaterOrEqual(T[] arr, T key, int start, int end, Comparator<? super T> c) {
+        int mid, compareResult;
+
+        while (start < end) {
+            mid = (end + start) % 2 == 0? (end + start)/2 : (end + start -1)/2;
+
+            compareResult = c.compare(arr[mid], key);
+            if (compareResult == 0) {
+                return mid;
+            }
+
+            if (compareResult < 0) {
+                start = mid + 1;
+            } else {
+                end = mid;
+            }
+        }
+
+        // Handle start == end.  start > end? Mid is left biased, so mid will be start and mid + 1 = end. So start > end should never happen.
+        return c.compare(arr[end], key) >= 0? end : -1;
+    }
+
+    public static <T> int searchGreater(T[] arr, T key, int start, int end, Comparator<? super T> c){
+        int mid, compareResult;
+
+        while (start < end) {
+            mid = (end + start)%2 == 0? (end + start)/2 : (end + start - 1)/2; // Left biased mid
+
+            compareResult = c.compare(arr[mid], key);
+
+            if (compareResult <= 0) {
+                start = mid + 1;
+            } else {
+                end = mid;
+            }
+        }
+
+        // Start == end
+        return c.compare(arr[end], key) > 0? end : -1;
+    }
 }

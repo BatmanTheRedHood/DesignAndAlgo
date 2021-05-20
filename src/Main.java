@@ -51,7 +51,18 @@ public class Main {
         // new CountTheTriplet().initAndRun();
         // new ContiguousSubArrayWithMaxSum().initAndRun();
         // new MergeWithoutExtraSpace().initAndRun();
-        new RearrangeArrayAlternatively().initAndRun();
+        // new RearrangeArrayAlternatively().initAndRun();
+        // new NumberOfPairs().initAndRun();
+        // new EquilibriumPoint().initAndRun();
+        // new MinimumPlatforms().initAndRun();
+        // new ReverseArrayInGroups().initAndRun();
+        // new KthSmallestElement().initAndRun();
+        // new TrappingRainWater().initAndRun();
+        // new PythagoreanTriplet().initAndRun();
+        // new StockBuyAndSell().initAndRun();
+        // new PartitionElement().initAndRun();
+        // new ArrayIntoZigZag().initAndRun();
+        new ReverseWordInAString().initAndRun();
     }
 
     private static void runLRUCache(){
