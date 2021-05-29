@@ -1,4 +1,9 @@
 import Algos.*;
+import Algos.Arrays.BinarySearch;
+import Algos.Arrays.NumberOfPairs;
+import Algos.Strings.FindSubstringInString;
+import Algos.Strings.FormAPalindrome;
+import Algos.Strings.RecursivelyRemoveAllAdjacentDuplicates;
 import Design.LRUCache.LRUCache;
 import models.Job;
 
@@ -52,7 +57,7 @@ public class Main {
         // new ContiguousSubArrayWithMaxSum().initAndRun();
         // new MergeWithoutExtraSpace().initAndRun();
         // new RearrangeArrayAlternatively().initAndRun();
-        // new NumberOfPairs().initAndRun();
+        new NumberOfPairs().initAndRun();
         // new EquilibriumPoint().initAndRun();
         // new MinimumPlatforms().initAndRun();
         // new ReverseArrayInGroups().initAndRun();
@@ -62,7 +67,17 @@ public class Main {
         // new StockBuyAndSell().initAndRun();
         // new PartitionElement().initAndRun();
         // new ArrayIntoZigZag().initAndRun();
-        new ReverseWordInAString().initAndRun();
+        // new ReverseWordInAString().initAndRun();
+        // new PermutationsOfAString().initAndRun();
+        // new LongestPalindromeInAString().initAndRun();
+        new RecursivelyRemoveAllAdjacentDuplicates().initAndRun();
+        // new StringRotatedBy2Place().initAndRun();
+        // new RomanNumberToInteger().initAndRun();
+        // new Anagram().initAndRun();
+        new FormAPalindrome().initAndRun();
+        // new LongestDistinctCharactersInString().initAndRun();
+        // new StringToInteger().initAndRun();
+        new FindSubstringInString().initAndRun();
     }
 
     private static void runLRUCache(){
