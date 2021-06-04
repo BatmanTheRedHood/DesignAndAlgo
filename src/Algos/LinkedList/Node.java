@@ -1,13 +1,11 @@
 package Algos.LinkedList;
 
-public class Node
-{
+public class Node {
     int data;
     Node next;
     Node bottom;
 
-    Node(int key)
-    {
+    public Node(int key) {
         data = key;
         next = null;
         bottom = null;

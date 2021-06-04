@@ -49,6 +49,7 @@ public class NumberOfPairs extends Algorithm {
 
     @Override
     protected void run() {
+        System.out.println("Not working!");
         System.out.println(String.format("No of pairs: %d", this.findPairs()));
         /*Arrays.sort(arrX);
         System.out.println(String.format("ArrrX length %d", arrX.length));

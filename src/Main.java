@@ -1,6 +1,7 @@
 import Algos.*;
 import Algos.Arrays.BinarySearch;
 import Algos.Arrays.NumberOfPairs;
+import Algos.StackQueue.*;
 import Algos.Strings.FindSubstringInString;
 import Algos.Strings.FormAPalindrome;
 import Algos.Strings.RecursivelyRemoveAllAdjacentDuplicates;
@@ -77,7 +78,13 @@ public class Main {
         new FormAPalindrome().initAndRun();
         // new LongestDistinctCharactersInString().initAndRun();
         // new StringToInteger().initAndRun();
-        new FindSubstringInString().initAndRun();
+        // new FindSubstringInString().initAndRun();
+        // new ParenthesisChecker().initAndRun();
+        //new NextGreaterElement().initAndRun();
+        new GetMinimumElementFromStack().initAndRun();
+        // new CircularTour().initAndRun();
+        // new FirstNonRepeatingCharacterInStream().initAndRun();
+        new MaximumOfAllSubarraysOfGivenSize().initAndRun();
     }
 
     private static void runLRUCache(){
