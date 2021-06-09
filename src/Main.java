@@ -5,6 +5,7 @@ import Algos.StackQueue.*;
 import Algos.Strings.FindSubstringInString;
 import Algos.Strings.FormAPalindrome;
 import Algos.Strings.RecursivelyRemoveAllAdjacentDuplicates;
+import Algos.Tree.MaximumPathSumBetween2LeafNodes;
 import Design.LRUCache.LRUCache;
 import models.Job;
 
@@ -84,7 +85,8 @@ public class Main {
         new GetMinimumElementFromStack().initAndRun();
         // new CircularTour().initAndRun();
         // new FirstNonRepeatingCharacterInStream().initAndRun();
-        new MaximumOfAllSubarraysOfGivenSize().initAndRun();
+        // new MaximumOfAllSubarraysOfGivenSize().initAndRun();
+        new MaximumPathSumBetween2LeafNodes().initAndRun();
     }
 
     private static void runLRUCache(){
