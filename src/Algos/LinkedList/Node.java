@@ -1,8 +1,8 @@
 package Algos.LinkedList;
 
 public class Node {
-    int data;
-    Node next;
+    public int data;
+    public Node next;
     Node bottom;
 
     public Node(int key) {
