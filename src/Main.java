@@ -1,6 +1,10 @@
 import Algos.*;
 import Algos.Arrays.BinarySearch;
 import Algos.Arrays.NumberOfPairs;
+import Algos.Recursion.CombinationSum;
+import Algos.Recursion.FloodFillAlgorithm;
+import Algos.Recursion.JosephusProblem;
+import Algos.Recursion.SpecialKeyboard;
 import Algos.StackQueue.*;
 import Algos.Strings.FindSubstringInString;
 import Algos.Strings.FormAPalindrome;
@@ -86,7 +90,10 @@ public class Main {
         // new CircularTour().initAndRun();
         // new FirstNonRepeatingCharacterInStream().initAndRun();
         // new MaximumOfAllSubarraysOfGivenSize().initAndRun();
-        new MaximumPathSumBetween2LeafNodes().initAndRun();
+        // new MaximumPathSumBetween2LeafNodes().initAndRun();
+        new CombinationSum().notWorking();
+        new SpecialKeyboard().rum();
+        new JosephusProblem().notWorking();
     }
 
     private static void runLRUCache(){

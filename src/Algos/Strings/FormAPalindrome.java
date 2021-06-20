@@ -40,7 +40,7 @@ public class FormAPalindrome extends Algorithm {
 
     @Override
     protected void run() {
-        System.out.println("Not working!");
+        System.out.println("FormAPalindrome Not working!");
         System.out.println(countMin("abcddd"));
     }
 

@@ -10,7 +10,7 @@ public class RecursivelyRemoveAllAdjacentDuplicates extends Algorithm {
 
     @Override
     protected void run() {
-        System.out.println("Not working!");
+        System.out.println("RecursivelyRemoveAllAdjacentDuplicates Not working!");
         System.out.println(remove("Given a string s, remove all its adjacent duplicate characters recursively. abccba"));
     }
 

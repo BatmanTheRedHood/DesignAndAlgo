@@ -10,6 +10,6 @@ public class GetMinimumElementFromStack extends Algorithm {
 
     @Override
     protected void run() {
-        System.out.println("Not working!");
+        System.out.println("GetMinimumElementFromStack Not working!");
     }
 }
