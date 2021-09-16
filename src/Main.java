@@ -1,14 +1,14 @@
 import Algos.*;
 import Algos.Arrays.BinarySearch;
 import Algos.Arrays.NumberOfPairs;
+import Algos.Arrays.NutsAndBolts;
+import Algos.BackTracking.GenerateIPAddress;
 import Algos.Recursion.CombinationSum;
 import Algos.Recursion.FloodFillAlgorithm;
 import Algos.Recursion.JosephusProblem;
 import Algos.Recursion.SpecialKeyboard;
 import Algos.StackQueue.*;
-import Algos.Strings.FindSubstringInString;
-import Algos.Strings.FormAPalindrome;
-import Algos.Strings.RecursivelyRemoveAllAdjacentDuplicates;
+import Algos.Strings.*;
 import Algos.Tree.MaximumPathSumBetween2LeafNodes;
 import Design.LRUCache.LRUCache;
 import models.Job;
@@ -92,8 +92,14 @@ public class Main {
         // new MaximumOfAllSubarraysOfGivenSize().initAndRun();
         // new MaximumPathSumBetween2LeafNodes().initAndRun();
         new CombinationSum().notWorking();
-        new SpecialKeyboard().rum();
+        // new SpecialKeyboard().rum();
         new JosephusProblem().notWorking();
+
+        // new Base10ToBase62().initAndRun();
+        // new SmallestWindowContainingString().initAndRun();
+        new NutsAndBolts().initAndRun();
+
+        // new GenerateIPAddress().initAndRun();
     }
 
     private static void runLRUCache(){
