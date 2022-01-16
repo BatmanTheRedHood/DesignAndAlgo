@@ -42,8 +42,8 @@ public class ReverseWordInAString extends Algorithm {
 
     @Override
     protected void run() {
-        System.out.println(reverseWord("i.like.this.program.very.much"));
-        System.out.println(reverseWord("pqr.mno"));
+        System.out.println(reverseWord2("i.like.this.program.very.much"));
+        System.out.println(reverseWord2("pqr.mno"));
     }
 
     private String reverseWord(String S){
@@ -61,5 +61,24 @@ public class ReverseWordInAString extends Algorithm {
 
         // Add last word
         return result + word;
+    }
+
+    // forward iteration
+    private String reverseWord2(String str) {
+        if (str == null)
+            return str;
+
+        String word = "";
+        String result = "";
+        for (int i=0; i<str.length(); i++) {
+            if (str.charAt(i) == '.') { // Word complete. 1. Add to result (pre-pend) 2. Add "." to result 3. reset word
+                result = "." + word + result;
+                word = "";
+            } else { // Add to word
+                word += str.charAt(i);
+            }
+        }
+
+        return word + result;
     }
 }

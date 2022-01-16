@@ -22,6 +22,34 @@ public class ConnectNodesAtSameLevel {
         }
     }
 
+    private void connect2(Node root) {
+        if (root == null)
+            return;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            int levelNodeCount = queue.size(); // Used to process nodes at a level.
+            Node prev = null;
+
+            for (int i=0; i < levelNodeCount; i++) {
+                Node current = queue.remove();
+
+                if (prev != null) // connect prev with current
+                    prev.nextRight = current;
+
+                if (current.left != null) // Add left child
+                    queue.add(current.left);
+
+                if (current.right != null) // Add right child
+                    queue.add(current.right);
+
+                prev = current; // Shift prev
+            }
+        }
+    }
+
     private void processBFSQueue(Queue<Node> q1, Queue<Node> q2) {
         Node prev = null;
         while (!q1.isEmpty()) {

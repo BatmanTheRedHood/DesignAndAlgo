@@ -12,13 +12,8 @@ public abstract class Inventory<T> implements IInventory<T> {
 
     @Override
     public void addItem(T item, Integer quantity) {
-        // If item doesn't exist
-        if (this.inventory.containsKey(item)){
-            int count = this.inventory.get(item);
-            this.inventory.put(item, count + quantity);
-        } else {
-            this.inventory.put(item, quantity);
-        }
+        int count = this.inventory.getOrDefault(item, 0) + quantity;
+        this.inventory.put(item, count);
     }
 
     @Override
@@ -33,10 +28,6 @@ public abstract class Inventory<T> implements IInventory<T> {
 
     @Override
     public int getQuantity(T item) {
-        if (this.inventory.containsKey(item)){
-            return this.inventory.get(item);
-        }
-
-        return 0;
+        return this.inventory.getOrDefault(item, 0);
     }
 }

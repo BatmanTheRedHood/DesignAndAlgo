@@ -56,7 +56,9 @@ public class PermutationsOfAString extends Algorithm {
 
     private List<String> find_permutation(String S) {
         Set<String> result = new HashSet<String>();
-        permutationOfStringFromIndex(S, 0, "", result);
+
+        char[] chars = S.toCharArray();
+        permutationOfStringFromIndex(chars, 0, "", result);
 
         // G4G need sorted string list in output.. Soo...
         List<String> res = new ArrayList<>(result);
@@ -65,38 +67,23 @@ public class PermutationsOfAString extends Algorithm {
         return res;
     }
 
-    private void permutationOfStringFromIndex(String str, int index, String word, Set<String> result) {
-        if (index == str.length() - 1) {
-            word += str.charAt(index);
+    private void permutationOfStringFromIndex(char[] chars, int index, String word, Set<String> result) {
+        if (index == chars.length - 1) {
+            word += chars[index];
             result.add(word);
             return;
         }
 
-        for (int i=index; i<str.length(); i++) {
-            str = swap(str, i, index);
-            permutationOfStringFromIndex(str, index + 1, word + str.charAt(index), result);
+        for (int i=index; i<chars.length; i++) {
+            swap(chars, i, index);
+            permutationOfStringFromIndex(chars, index + 1, word + chars[index], result);
+            swap(chars, i, index);
         }
     }
 
-    private void permutationOfStringFromIndex2(String str, int index, String word, List<String> result) {
-        if (index == str.length() - 1) {
-            word += str.charAt(index);
-            result.add(word);
-            return;
-        }
-
-        for (int i=index; i<str.length(); i++) {
-            str = swap(str, i, index);
-            permutationOfStringFromIndex2(str, index + 1, word + str.charAt(index), result);
-        }
-    }
-
-    private String swap(String str, int a, int b){
-        char[] charArr = str.toCharArray();
+    private void swap(char[] charArr, int a, int b){
         char temp = charArr[a];
         charArr[a] = charArr[b];
         charArr[b] = temp;
-
-        return String.copyValueOf(charArr);
     }
 }

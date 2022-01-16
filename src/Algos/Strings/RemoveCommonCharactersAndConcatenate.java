@@ -1,12 +1,15 @@
 package Algos.Strings;
 
+import java.util.Arrays;
+
 public class RemoveCommonCharactersAndConcatenate {
     public String removeCommon(String s1, String s2){
         int[] commonChars = new int[26];
 
-        for (int i=0; i<26; i++){
+        Arrays.fill(commonChars, 0);
+        /* for (int i=0; i<26; i++){
             commonChars[i] = 0;
-        }
+        } */
 
         for (int i=0; i<s2.length(); i++) {
             commonChars[s2.charAt(i) - 'a'] = 1;

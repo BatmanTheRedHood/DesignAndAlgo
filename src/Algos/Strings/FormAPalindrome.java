@@ -2,6 +2,8 @@ package Algos.Strings;
 
 import models.Algorithm;
 
+import java.util.Arrays;
+
 /**
  * Given a string, find the minimum number of characters to be inserted to convert it to palindrome.
  * For Example:
@@ -42,6 +44,35 @@ public class FormAPalindrome extends Algorithm {
     protected void run() {
         System.out.println("FormAPalindrome Not working!");
         System.out.println(countMin("abcddd"));
+    }
+
+    private int countMin3(String str) {
+        int[][] computedResult = new int[str.length()][str.length()];
+        for (int i=0; i<str.length(); i++) {
+            Arrays.fill(computedResult[i], -1);
+        }
+
+        return formPalindrome(str, 0, str.length() -1, computedResult);
+    }
+
+    private int formPalindrome(String str, int start, int end, int[][] computedResult) {
+        if (computedResult[start][end] != -1)
+            return computedResult[start][end];
+
+        if (start > end)
+            return 0;
+
+        if (start == end)
+            return 0;
+
+        if (str.charAt(start) == str.charAt(end)) {
+            computedResult[start][end] = formPalindrome(str, start + 1, end - 1, computedResult);
+        } else {
+            computedResult[start][end] = 1 + Math.min(formPalindrome(str, start + 1, end, computedResult),
+                    formPalindrome(str, start, end - 1, computedResult));
+        }
+
+        return computedResult[start][end];
     }
 
     /**
@@ -113,5 +144,47 @@ public class FormAPalindrome extends Algorithm {
         int oddLongestPalin = j - i - 1;
 
         return Math.max(evenLongestPalin, oddLongestPalin);
+    }
+
+    // "abc"
+    private int countMin2(String str) {
+        // Null or empty or 1 length return 0
+        if (str == null || str.length() == 0)
+            return 0;
+
+        int maxPalinLength = 1;
+
+        // Find palins from start with length str.length() to 2 till we find one
+        for (int len = str.length(); len > 1; len--) {
+            if (isPalin2(str, 0, len -1)) {
+                maxPalinLength = len;
+                break; // Break as other lengths will be smaller
+            }
+        }
+
+        if (maxPalinLength == str.length())
+            return 0;
+
+        // Find palins from end
+        for (int i = 1; i < str.length(); i++) {
+            if (isPalin2(str, i, str.length() - 1)) {
+                maxPalinLength = Math.max(maxPalinLength, str.length() - i);
+                break;
+            }
+        }
+
+        return str.length() - maxPalinLength;
+    }
+
+    private boolean isPalin2(String str, int start, int end) {
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end))
+                return false;
+
+            start++;
+            end--;
+        }
+
+        return true;
     }
 }

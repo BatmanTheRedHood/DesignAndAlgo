@@ -1,3 +1,5 @@
+import Adhoc.Microsoft;
+import Adhoc.Microsoft2;
 import Algos.*;
 import Algos.Arrays.BinarySearch;
 import Algos.Arrays.NumberOfPairs;
@@ -13,17 +15,25 @@ import Algos.Tree.MaximumPathSumBetween2LeafNodes;
 import Design.LRUCache.LRUCache;
 import models.Job;
 
+import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 public class Main {
     public static void main(String[] args){
-        System.out.println("Hello World!");
+        // System.out.println("Hello World!");
         runAlgo();
-
-        //testBinarySearch();
-        //runUC();
-        //runLRUCache();
+        // testBinarySearch();
+        // runUC();
+        // runLRUCache();
     }
+
+
+
+
+
+
+
 
     private static void testBinarySearch(){
         Integer[] arr = new Integer[]{1, 2, 3, 4, 5, 6};
@@ -63,7 +73,7 @@ public class Main {
         // new ContiguousSubArrayWithMaxSum().initAndRun();
         // new MergeWithoutExtraSpace().initAndRun();
         // new RearrangeArrayAlternatively().initAndRun();
-        new NumberOfPairs().initAndRun();
+        ////new NumberOfPairs().initAndRun();
         // new EquilibriumPoint().initAndRun();
         // new MinimumPlatforms().initAndRun();
         // new ReverseArrayInGroups().initAndRun();
@@ -73,33 +83,35 @@ public class Main {
         // new StockBuyAndSell().initAndRun();
         // new PartitionElement().initAndRun();
         // new ArrayIntoZigZag().initAndRun();
+
+        // String start
         // new ReverseWordInAString().initAndRun();
         // new PermutationsOfAString().initAndRun();
         // new LongestPalindromeInAString().initAndRun();
-        new RecursivelyRemoveAllAdjacentDuplicates().initAndRun();
+        //new RecursivelyRemoveAllAdjacentDuplicates().initAndRun();
         // new StringRotatedBy2Place().initAndRun();
         // new RomanNumberToInteger().initAndRun();
         // new Anagram().initAndRun();
-        new FormAPalindrome().initAndRun();
+        ////new FormAPalindrome().initAndRun();
         // new LongestDistinctCharactersInString().initAndRun();
         // new StringToInteger().initAndRun();
         // new FindSubstringInString().initAndRun();
         // new ParenthesisChecker().initAndRun();
         //new NextGreaterElement().initAndRun();
-        new GetMinimumElementFromStack().initAndRun();
+        ////new GetMinimumElementFromStack().initAndRun();
         // new CircularTour().initAndRun();
         // new FirstNonRepeatingCharacterInStream().initAndRun();
         // new MaximumOfAllSubarraysOfGivenSize().initAndRun();
         // new MaximumPathSumBetween2LeafNodes().initAndRun();
-        new CombinationSum().notWorking();
+        /////new CombinationSum().notWorking();
         // new SpecialKeyboard().rum();
-        new JosephusProblem().notWorking();
-
+        ////new JosephusProblem().notWorking();
         // new Base10ToBase62().initAndRun();
-        // new SmallestWindowContainingString().initAndRun();
-        new NutsAndBolts().initAndRun();
-
+        ////new SmallestWindowContainingString().initAndRun();
+        // new NutsAndBolts().initAndRun();
         // new GenerateIPAddress().initAndRun();
+
+        new Microsoft2().printHello();
     }
 
     private static void runLRUCache(){

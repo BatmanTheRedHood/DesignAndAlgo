@@ -17,8 +17,7 @@ public class SmallestWindowContainingString extends Algorithm {
 
         // Initiate map with patters chars
         for (int i=0; i<p.length(); i++) {
-            int count = charCountMap.containsKey(p.charAt(i)) ? charCountMap.get(p.charAt(i)) : 0;
-            charCountMap.put(p.charAt(i), count - 1);
+            charCountMap.put(p.charAt(i), charCountMap.getOrDefault(p.charAt(i), 0) - 1);
         }
 
         int matchedCharCount = 0;
@@ -90,6 +89,58 @@ public class SmallestWindowContainingString extends Algorithm {
         return isWindow ? result : "-1";
     }
 
+    private String smallestWindow2(String s, String p) {
+        if (s.length() < p.length())
+            return "-1";
+
+        // Initialize haspMap for p
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        for (int i=0;i<p.length(); i++) {
+            charCountMap.put(p.charAt(i), charCountMap.getOrDefault(p.charAt(i), 0) + 1);
+        }
+
+        // Start looking for smallest window
+        int start = 0;
+        int matchCount = 0;
+        int smallestWindow = 0;
+        for (int end = 0; end<s.length(); end++) {
+            char c = s.charAt(end);
+            if (charCountMap.containsKey(c)) { // If char is in pattern P
+                if (charCountMap.get(c) > 0) {
+                    matchCount++; // Increment matchCount for +ve match
+                }
+
+                charCountMap.put(c, charCountMap.get(c) - 1);
+            }
+
+            // Match window found
+            if (matchCount == p.length()) {
+                // Shrunk window
+                while (true) {
+                    // Check if char at start is not ignorable.
+                    if (charCountMap.containsKey(s.charAt(start))) {
+                        charCountMap.put(s.charAt(start), charCountMap.get(s.charAt(start)) + 1);
+
+                        // Check if not extra match. Window cannot shrink further. Update smallest window
+                        if (charCountMap.get(s.charAt(start)) > 0) {
+                            smallestWindow = Math.min(smallestWindow, end - start + 1);
+
+                            // Set for next window
+                            matchCount--;
+                            start++;
+                            break;
+                        }
+
+                    }
+
+                    start++;
+                }
+            }
+        }
+
+        return smallestWindow != 0 ? "smallestWindow" : "-1";
+    }
+
     private boolean containsAllChar(Map<Character, Integer> charCountMap) {
         for (Map.Entry<Character, Integer> entry: charCountMap.entrySet()){
             if (entry.getValue() < 0)
@@ -107,6 +158,8 @@ public class SmallestWindowContainingString extends Algorithm {
     @Override
     protected void run() {
         // System.out.println(smallestWindow("timetopractice", "toc"));
-        System.out.println(smallestWindow("zoomlazapzo", "oza"));
+        // System.out.println(smallestWindow("zoomlazapzo", "oza"));
+
+        System.out.println(smallestWindow("amazonwebservice", "aws"));
     }
 }

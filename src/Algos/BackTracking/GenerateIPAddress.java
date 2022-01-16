@@ -48,7 +48,6 @@ public class GenerateIPAddress extends Algorithm {
         String[] numList = partIP.split("\\.");
 
         for (String num: numList) {
-
             System.out.println(num);
             if (num.isEmpty())
                 continue;
